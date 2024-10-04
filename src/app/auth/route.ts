@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
       maxAge: 3600 // 1 hour
     });
     return NextResponse.json(user);
-  } catch (error) {
+  } catch (error: any) {
     console.error('Login error:', error);
     return NextResponse.json({ error: error.message || 'Authentication failed' }, { status: 401 });
   }
@@ -21,6 +21,9 @@ export async function POST(request: NextRequest) {
 
 export async function GET(request: NextRequest) {
   const token = cookies().get('auth_token')?.value;
+  if (!token) {
+    return NextResponse.json(null, { status: 401 });
+  }
   const user = await checkAuthStatus(token);
   if (user) {
     return NextResponse.json(user);

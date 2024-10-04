@@ -5,14 +5,22 @@ import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from "next/link";
 
-const FeatureCard = ({ icon: Icon, title, description, isActive, onClick }) => (
+interface FeatureCardProps {
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  title: string;
+  description: string;
+  isActive: boolean;
+  onClick: () => void;
+}
+
+const FeatureCard: React.FC<FeatureCardProps> = ({ icon: Icon, title, description, isActive, onClick }) => (
   <motion.div 
     className={`cursor-pointer p-6 rounded-lg transition-all duration-300 transform hover:-translate-y-1 ${isActive ? 'bg-indigo-600 text-white' : 'bg-white shadow-md'}`}
     whileHover={{ scale: 1.05 }}
     whileTap={{ scale: 0.95 }}
     onClick={onClick}
   >
-    <Icon className={`mx-auto mb-4 ${isActive ? 'text-white' : 'text-indigo-600'}`} size={48} />
+    <Icon className={`mx-auto mb-4 ${isActive ? 'text-white' : 'text-indigo-600'}`} width={48} height={48} />
     <h3 className="text-xl font-semibold mb-2">{title}</h3>
     <p className={isActive ? 'text-indigo-100' : 'text-gray-600'}>{description}</p>
   </motion.div>
@@ -54,7 +62,7 @@ const ImageTransformDemo = () => {
       <h3 className="text-2xl font-semibold mb-6 text-gray-800">Try It Out</h3>
       <div className="relative w-full h-96 mb-6 overflow-hidden rounded-lg shadow-md">
         <img 
-          src={images[currentImage]} 
+          src={images[currentImage as keyof typeof images]} 
           alt="Landscape" 
           className="w-full h-full object-cover transition-opacity duration-500"
         />
@@ -131,7 +139,7 @@ const HowItWorks = () => {
   );
 };
 
-const PricingCard = ({ title, price, features, isPopular }) => (
+const PricingCard = ({ title, price, features, isPopular }: { title: string; price: number; features: string[]; isPopular: boolean }) => (
   <div className={`bg-white p-8 rounded-lg shadow-lg flex flex-col ${isPopular ? 'border-2 border-indigo-400' : ''}`}>
     <h3 className="text-2xl font-semibold mb-2 text-gray-800">{title}</h3>
     <div className="text-4xl font-bold mb-6 text-indigo-600">${price}<span className="text-xl font-normal text-gray-600">/mo</span></div>

@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
     });
     console.log('Login route - user data:', user);
     return NextResponse.json({ user });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Login error:', error);
     return NextResponse.json({ error: error.message || 'Authentication failed' }, { status: 401 });
   }
