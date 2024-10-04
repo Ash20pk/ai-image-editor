@@ -102,14 +102,14 @@ export default function GenerateImage({
   };
 
   return (
-    <div className="flex flex-col space-y-4">
-      <div className="flex flex-col md:flex-row gap-2">
+    <div className="flex flex-col space-y-2">
+      <div className="flex items-center space-x-2">
         <input
           type="text"
           value={prompt}
           placeholder={placeholders[placeholderIndex]}
           onChange={onPromptChange}
-          className="flex-grow px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-700 placeholder-gray-400 transition-all duration-300 ease-in-out"
+          className="flex-grow px-2 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-700 placeholder-gray-400 transition-all duration-300 ease-in-out"
         />
         <Button 
           onClick={generate} 

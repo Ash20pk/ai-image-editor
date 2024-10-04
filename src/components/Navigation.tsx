@@ -56,9 +56,9 @@ export default function Navigation({
   };
 
   return (
-    <div className="flex justify-between bg-slate-900 p-5">
+    <div className="flex justify-between p-5">
       <IconButton title="Upload image" onClick={onUploadButtonClick}>
-        <FiUpload />
+        <FiUpload color="black" />
         <input
           ref={inputRef}
           type="file"
@@ -82,7 +82,7 @@ export default function Navigation({
         )}
       </div>
       <IconButton title="Download image" onClick={onDownload}>
-        <FiDownload />
+        <FiDownload color="black" />
       </IconButton>
     </div>
   );
