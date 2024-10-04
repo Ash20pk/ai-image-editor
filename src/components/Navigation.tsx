@@ -68,7 +68,7 @@ export default function Navigation({
         />
       </IconButton>
       <div className="flex grow items-center justify-center gap-2 mx-20">
-        {mode === "crop" && <Button onClick={onCrop}>Crop</Button>}
+        {mode === "crop" && <Button onClick={onCrop}>Crop the area you want to edit</Button>}
         {mode === "generate" && (
           <>
             <GenerateImage
@@ -82,7 +82,7 @@ export default function Navigation({
         )}
       </div>
       <IconButton title="Download image" onClick={onDownload}>
-        <FiDownload color="black" />
+        <FiDownload color="black"/>
       </IconButton>
     </div>
   );
