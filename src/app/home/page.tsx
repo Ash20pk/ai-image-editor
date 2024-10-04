@@ -59,7 +59,6 @@ const ImageTransformDemo = () => {
 
   return (
     <div className="bg-white p-8 rounded-lg shadow-lg">
-      <h3 className="text-2xl font-semibold mb-6 text-gray-800">Try It Out</h3>
       <div className="relative w-full h-96 mb-6 overflow-hidden rounded-lg shadow-md">
         <img 
           src={images[currentImage as keyof typeof images]} 
@@ -119,8 +118,8 @@ const HowItWorks = () => {
 
   return (
     <div className="bg-white p-8 rounded-lg shadow-lg">
-      <h3 className="text-2xl font-semibold mb-6 text-gray-800">How It Works</h3>
-      <div className="space-y-4">
+      <h3 className="text-2xl font-semibold mb-6 text-gray-800 text-center">How It Works</h3>
+      <div className="space-y-4 max-w-md mx-auto">
         {steps.map((step, index) => (
           <motion.div 
             key={index}
